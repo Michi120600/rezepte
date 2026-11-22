@@ -1,4 +1,4 @@
-const V='rezepte-v1795378591139';const CORE=["app.js","app.css","planer.js","planer.css","style.css","fonts-barlow-400.woff2","fonts-barlow-500.woff2","fonts-barlow-600.woff2","fonts-barlow-cond-600.woff2","fonts-barlow-cond-700.woff2","icon.svg","icon-192.png","index.html","daten.js"];
+const V='rezepte-v1795378878986';const CORE=["app.js","app.css","planer.js","planer.css","style.css","fonts-barlow-400.woff2","fonts-barlow-500.woff2","fonts-barlow-600.woff2","fonts-barlow-cond-600.woff2","fonts-barlow-cond-700.woff2","icon.svg","icon-192.png","index.html","daten.js"];
 self.addEventListener('install',e=>e.waitUntil(caches.open(V).then(c=>c.addAll(CORE)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>x!==V).map(x=>caches.delete(x)))).then(()=>clients.claim())));
 self.addEventListener('fetch',e=>{if(e.request.method!=='GET')return;e.respondWith(fetch(e.request).then(r=>{const c=r.clone();caches.open(V).then(x=>x.put(e.request,c));return r}).catch(()=>caches.match(e.request,{ignoreSearch:true})))});
